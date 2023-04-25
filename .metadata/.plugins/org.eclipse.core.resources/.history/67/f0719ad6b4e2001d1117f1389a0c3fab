@@ -1,0 +1,18 @@
+package com.example.Boutique.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import ch.qos.logback.core.model.Model;
+@org.springframework.stereotype.Service
+public class Service {
+	@Autowired
+	private Model boti;
+	public List<Model> getModel()
+	{
+		return boti.findAll();
+	}
+	
+
+}
