@@ -1,0 +1,20 @@
+package com.example.Boutique.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.example.Boutique.model.Boutique;
+@Repository
+public interface BoutiqueRep extends JpaRepository<Boutique, Integer> {
+	
+	@Query(value="select* from Boutique",nativeQuery =true)
+	 public List<Boutique> getAllData();
+	 @Query(value="select * from boutique where item_no=?1", nativeQuery = true)
+	 public List<Boutique> byitmno(@Param("id") int id);
+	 
+    
+}

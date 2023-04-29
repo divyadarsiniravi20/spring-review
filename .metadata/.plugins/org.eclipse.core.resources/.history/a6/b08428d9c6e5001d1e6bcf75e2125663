@@ -1,0 +1,9 @@
+package com.example.Boutique.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.Boutique.model.loginModel;
+
+public interface Loginrepo extends JpaRepository<loginModel, Integer> {
+
+}

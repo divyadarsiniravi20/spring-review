@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Boutique.model.Boutique;
+
 import com.example.Boutique.service.BoutiqueService;
 
 @RestController
@@ -42,5 +43,19 @@ public class BoutiqueController {
 	{
 	bs.Delete(itemno);
 	}
-
+	@GetMapping("/div/{name}")
+	public List<Boutique> sortDetails(@PathVariable("name")String name)
+	{
+		return bs.sortDetails(name);
+	}
+	@GetMapping("/div/{civ}/{psize}")
+	public List<Boutique> page(@PathVariable("civ")int num,@PathVariable("psize")int size)
+	{
+		return bs.page(num, size);
+	}
+    @GetMapping("/div/{num}/{size}/{name}")
+    public List<Boutique> sortpage(@PathVariable int num,@PathVariable int size,@PathVariable String name)
+    {
+    	return bs.sortpage(num, size, name);
+    }
 }

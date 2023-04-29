@@ -1,6 +1,7 @@
 package com.example.Boutique.model;
 
 import jakarta.persistence.Entity;
+
 import jakarta.persistence.Id;
 
 @Entity
