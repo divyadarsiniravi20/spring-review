@@ -1,5 +1,0 @@
-package com.example.newDay.Repository;
-
-public interface Repository {
-
-}
