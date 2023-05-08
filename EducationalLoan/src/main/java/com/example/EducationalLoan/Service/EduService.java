@@ -1,80 +1,90 @@
 package com.example.EducationalLoan.Service;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.example.EducationalLoan.Model.LoanApplicationModel;
 import com.example.EducationalLoan.Model.UserModel;
-import com.example.EducationalLoan.Repository.AdminRepo;
 import com.example.EducationalLoan.Repository.LoanApplicationRepo;
+import com.example.EducationalLoan.Repository.UserRepo;
 
 
 @Service
-public class EduService
-{
+
+public class EduService {
 	@Autowired
-	AdminRepo arepo;
+	public UserRepo rep;
+
 	
-	//get 
-		public List<UserModel> getAdmin()
-		{
-			return arepo.findAll();
-		}
-		
-		//post 
-		public String postAdmin(UserModel am)
-		{
-			arepo.save(am);
-			return "Data is Saved in Admin Table";
-		}
-		
-		//delete
-		public String deleteAdmin(int adminId)
-		{
-			arepo.deleteById(adminId);
-			return "Deleted in Admin Model";
-		}
-		
-		//update
-		public  String updateAdmin(UserModel am)
-		{
-			arepo.saveAndFlush(am);
-			return "Data Updated in AdminModel";
-		}
-		
-		
-// loanapplication
-		
-		@Autowired
-		LoanApplicationRepo arepo1;
-		
-		public List<LoanApplicationModel > getAdmin1()
-		{
-			return arepo1.findAll();
-		}
-		
-		//post 
-		public String postAdmin(LoanApplicationModel  am)
-		{
-			arepo1.save(am);
-			return "Data is Saved in Admin Table";
-		}
-		
-		//delete
-		public String deleteAdmin1(int adminId)
-		{
-			arepo1.deleteById(adminId);
-			return "Deleted in Admin Model";
-		}
-		
-		//update
-		public  String updateAdmin(LoanApplicationModel  am)
-		{
-			arepo1.saveAndFlush(am);
-			return "Data Updated in AdminModel";
-		}
-		
-		
+
+	public UserModel adduser(UserModel usmodel)
+
+	{
+
+	return rep.save(usmodel);
+
+	}
+
+
+
+	public Optional<UserModel> getUsermodelbyId(int id)
+
+	{
+
+	return rep.findById(id);
+
+	}
+
+	public UserModel update (UserModel id)
+
+	{
+
+	return rep.saveAndFlush(id);
+
+	}
+
+	public void delete(int id)
+
+	{
+
+	rep.deleteById(id);
+
+	}
+
 	
+
+public LoanApplicationRepo repe;
+	public LoanApplicationModel adduser(LoanApplicationModel usmodel)
+	{
+	return repe.save(usmodel);
+	}
+	public Optional<LoanApplicationModel> getLoanApplicationbyId(int loanId)
+	{
+
+	return repe.findById(loanId);
+
+	}
+
+	public LoanApplicationModel update (LoanApplicationModel loanId)
+	{
+	return repe.saveAndFlush(loanId);
+	}
+	public void delete1(int loanId)
+	{
+	repe.deleteById(loanId);
+	}
+
+	
+
+	
+
+
+
+
+
+
+
 }
+
